@@ -5,5 +5,8 @@ public class Model {
 	public Model() {
 		// TODO Auto-generated constructor stub
 	}
+	public void recordResult(int num) {
+		
+	}
 
 }
