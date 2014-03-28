@@ -6,6 +6,7 @@ import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -34,6 +35,14 @@ public class View extends JFrame{
 		pack();
 		setVisible(true);
 	}
+	/*
+	 * try {
+			ImageIcon is;
+			if (model.pieceAt(i, k).player() == Player.PLAYER1) {
+				if (model.pieceAt(i, k).type() == "king") {
+					is = new ImageIcon(getClass().getResource(
+							"images/King/king" + player1Color +".png"));
+	 */
 	public void setPictureQuestion() {
 		
 	}
