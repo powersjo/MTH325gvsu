@@ -4,7 +4,7 @@
 package view;
 
 /**
- * @author Jon Powers Laptop
+ * @author Jon, Brett, John
  *
  */
 public class Main {
