@@ -5,10 +5,15 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
+import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import model.Model;
@@ -28,22 +33,22 @@ public class View extends JFrame{
 		bottom.setBackground(Color.gray);
 		bottom.setPreferredSize(new Dimension(500, 200));
 		setLayout(new BorderLayout());
+		setPictureQuestion();
 		add(top, BorderLayout.NORTH);
 		add(bottom, BorderLayout.SOUTH);
 		setPreferredSize(new Dimension(500, 600));
 		pack();
 		setVisible(true);
 	}
-	/*
-	 * try {
-			ImageIcon is;
-			if (model.pieceAt(i, k).player() == Player.PLAYER1) {
-				if (model.pieceAt(i, k).type() == "king") {
-					is = new ImageIcon(getClass().getResource(
-							"images/King/king" + player1Color +".png"));
-	 */
 	public void setPictureQuestion() {
-		
+		BufferedImage myPicture = null;
+		try {
+			myPicture = ImageIO.read(this.getClass().getResource("/images/answers/collalgebra/1.png"));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		JLabel picLabel = new JLabel(new ImageIcon(myPicture));
+		top.add(picLabel);
 	}
 	/**
 	 * Changes the amount of buttons on the bottom JPanel.
