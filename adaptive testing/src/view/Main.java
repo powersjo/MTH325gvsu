@@ -3,6 +3,8 @@
  */
 package view;
 
+import model.Model;
+
 /**
  * @author Jon, Brett, John
  *
@@ -21,7 +23,8 @@ public class Main {
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		View view = new View();
+		Model m = new Model();
+		View view = new View(m);
 	}
 
 }

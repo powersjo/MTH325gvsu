@@ -19,9 +19,8 @@ public class View extends JFrame{
 	Model model;
 	JPanel top, bottom;
 	JButton button1, button2, button3, button4, button5, button6;
-	public View() {
-		// TODO Auto-generated constructor stub
-		model =  new Model();
+	public View(Model m) {
+		model = m;
 		top = new JPanel();
 		top.setBackground(Color.lightGray);
 		top.setPreferredSize(new Dimension(500, 400));
