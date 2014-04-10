@@ -119,18 +119,18 @@ public class Model {
 	}
 	/**
 	 * record the result of the answer in a text file.
-	 * @param num
+	 * @param ans
 	 */
-	public void recordResult(int num, boolean answer) {
+	public void recordResult(String ans) {
 		
 	}
 	private boolean isCorrect(int subject, int question) {
 		return false;
 	}
-	public int nextQuestion(int subject, int question) {
+	public int nextQuestion() {
 		int temp[] = new int[2];
-		temp[0] = subject;
-		temp[1] = question;
+		//temp[0] = subject;
+		//temp[1] = question;
 		return current[1];
 	}
 	public String getSubject() {
