@@ -3,6 +3,7 @@ package view;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
@@ -23,18 +24,29 @@ public class View extends JFrame{
 
 	Model model;
 	JPanel top, bottom;
-	JButton button1, button2, button3, button4, button5, button6;
+	JButton button1, button2, button3, button4, button5;
 	public View(Model m) {
 		model = m;
 		top = new JPanel();
 		top.setBackground(Color.lightGray);
-		top.setPreferredSize(new Dimension(500, 400));
+		top.setPreferredSize(new Dimension(500, 350));
 		bottom = new JPanel();
 		bottom.setBackground(Color.gray);
 		bottom.setPreferredSize(new Dimension(500, 200));
 		setLayout(new BorderLayout());
 		setPictureQuestion();
 		add(top, BorderLayout.NORTH);
+		button1 = new JButton("A");
+		button2 = new JButton("B");
+		button3 = new JButton("C");
+		button4 = new JButton("D");
+		button5 = new JButton("E");
+		bottom.setLayout(new GridLayout(1,5));
+		bottom.add(button1);
+		bottom.add(button2);
+		bottom.add(button3);
+		bottom.add(button4);
+		bottom.add(button5);
 		add(bottom, BorderLayout.SOUTH);
 		setPreferredSize(new Dimension(700, 600));
 		pack();
@@ -84,7 +96,7 @@ public class View extends JFrame{
 	 */
 	private class ButtonListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
-		
+			
 		}
 	}
 }
