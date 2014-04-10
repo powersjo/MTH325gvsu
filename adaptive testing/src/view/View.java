@@ -36,7 +36,7 @@ public class View extends JFrame{
 		setPictureQuestion();
 		add(top, BorderLayout.NORTH);
 		add(bottom, BorderLayout.SOUTH);
-		setPreferredSize(new Dimension(500, 600));
+		setPreferredSize(new Dimension(700, 600));
 		pack();
 		setVisible(true);
 	}
