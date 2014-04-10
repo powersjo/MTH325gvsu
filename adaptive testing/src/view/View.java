@@ -41,9 +41,11 @@ public class View extends JFrame{
 		setVisible(true);
 	}
 	public void setPictureQuestion() {
+		String tempString = model.getSubject();
+		String tempInt = String.valueOf(model.getQuestion());
 		BufferedImage myPicture = null;
 		try {
-			myPicture = ImageIO.read(this.getClass().getResource("/images/answers/collalgebra/1.png"));
+			myPicture = ImageIO.read(this.getClass().getResource("/images/answers/"+tempString+"/"+tempInt+".png"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

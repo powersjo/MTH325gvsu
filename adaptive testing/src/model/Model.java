@@ -23,7 +23,7 @@ public class Model {
 		}
 		current = new int[2];
 		current[0] = randomStart();
-		current[1] = 0;
+		current[1] = 1;
 		
 	}
 	private int randomStart() {
