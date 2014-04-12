@@ -80,9 +80,9 @@ public class Model {
 		key[5][4] = "d";
 		key[5][5] = "d";
 		key[5][6] = "d";
-		key[5][7] = "e";//still need to finish
-		key[5][8] = "";
-		key[5][9] = "";
+		key[5][7] = "e";
+		key[5][8] = "e";
+		key[5][9] = "c";
 		key[6][0] = "b";
 		key[6][1] = "c";
 		key[6][2] = "c";
@@ -100,7 +100,7 @@ public class Model {
 		key[7][4] = "b";
 		key[7][5] = "a";
 		key[7][6] = "a";
-		key[7][7] = "e";//still need to get the pictures and answers
+		key[7][7] = "e";
 		key[7][8] = "b";
 		key[7][9] = "e";
 		
