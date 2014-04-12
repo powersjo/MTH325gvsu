@@ -101,8 +101,8 @@ public class Model {
 		key[7][5] = "a";
 		key[7][6] = "a";
 		key[7][7] = "e";//still need to get the pictures and answers
-		key[7][8] = "";
-		key[7][9] = "";
+		key[7][8] = "b";
+		key[7][9] = "e";
 		
 		subjects[0] = "prealgebra";
 		subjects[1] = "algebra";
