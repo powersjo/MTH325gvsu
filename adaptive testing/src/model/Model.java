@@ -70,9 +70,9 @@ public class Model {
 		key[4][4] = "d";
 		key[4][5] = "c";
 		key[4][6] = "b";
-		key[4][7] = "c";//trig is not done yet
+		key[4][7] = "c";
 		key[4][8] = "b";
-		key[4][9] = "";
+		key[4][9] = "b";
 		key[5][0] = "a";
 		key[5][1] = "a";
 		key[5][2] = "b";
