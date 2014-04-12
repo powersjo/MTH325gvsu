@@ -4,18 +4,22 @@ import java.util.Random;
 
 public class Model {
 
+	private String answers;
 	private String[] subjects;
 	private int[] used;
 	private int[] number;
 	private int[] current;
 	private String[][] key;
-	private int tempRandom;
+	private int inARow, tempRandom, userCorrect, questionsAsked;
 	public Model() {
 		subjects = new String[8];
 		number = new int[10];
 		used = new int[10];
 		key = new String[8][10];
 		tempRandom = 0;
+		userCorrect = 0;
+		inARow = 0;
+		answers = "";
 		/*
 		 * Create the Key
 		 */
@@ -125,36 +129,67 @@ public class Model {
 	 * record the result of the answer in a text file.
 	 * @param ans
 	 */
-	public void recordResult(String ans) {
-		
+	private void recordResult(String ans) {
+		answers = answers + ans + "\n";
+		System.out.println(answers);
 	}
-	private boolean isCorrect(int subject, String answer) {
-		if(key[subject][current[1]].equals(answer)) {
-			return true;
+	public void checkAnswer(String answer) {
+		if(key[current[0]][current[1]].equals(answer)) {
+			userCorrect++;
+			inARow++;
+			String temp = subjects[current[0]] + ", " + current[1] + ", correct.";
+			recordResult(temp);
+		} else {
+			inARow = 0;
+			userCorrect--;
+			String temp = subjects[current[0]] + ", " + current[1] + ", incorrect.";
+			recordResult(temp);
 		}
-		return false;
 	}
 	private void newRandom() {
 		Random randomGen = new Random();
 		tempRandom = randomGen.nextInt(8) + 2;
 	}
-	public int nextQuestion() {
-		newRandom();
-		used[current[1]] = tempRandom;
-		for (int i = 0; i < 10; i++) {
-			if (used[i] == current[1]) {
-				newRandom();
-				i=0;
-			}
-		}
-		System.out.println(tempRandom);
-		current[1] = tempRandom;
+	private int nextQuestion() {
+		current[1]++;
+		//newRandom();
+		//used[0] = tempRandom;
+		//int i = 0;
+		//while (i < 1) {
+		//	if (used[i] == current[1]) {
+		//		newRandom();
+		//		used[0] = tempRandom;
+		//	} else {
+		//		i = 1;
+		//	}
+		//}
+		//for (int k = 9; k > questionsAsked; k--) {
+		//	if (used[k] != 0) {
+		//		used[k] = tempRandom;
+		//		k = -1;
+		//	} 
+		//}
+		//System.out.println(tempRandom);
+		//current[1] = tempRandom;
 		return current[1];
 	}
 	public String getSubject() {
+		if (userCorrect == 3) {
+			current[0]++;
+		}
+		if (inARow == 3) {
+			current[0]++;
+			inARow = 0;
+		}
+		if (userCorrect == -3) {
+			current[0] = current[0] - 2;
+			if (current[0] < 0) {
+				current[0] = 0;
+			}
+		}
 		return subjects[current[0]];
 	}
 	public int getQuestion() {
-		return current[1];
+		return nextQuestion();
 	}
 }
