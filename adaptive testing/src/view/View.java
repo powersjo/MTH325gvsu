@@ -17,6 +17,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import model.Model;
+import model.ResourceLoader;
 
 @SuppressWarnings("serial")
 public class View extends JFrame{
@@ -65,10 +66,10 @@ public class View extends JFrame{
 		System.out.println(tempInt + " " + tempString);
 		BufferedImage myPicture = null;
 		try {
-			myPicture = ImageIO.read(getClass().getResource("/images/answers/"+tempString+"/"+tempInt+".png"));
+			myPicture = ImageIO.read(ResourceLoader.load("images/answers/"+tempString+"/"+tempInt+".png"));
 		} catch (IOException e) {
 			try {
-				myPicture = ImageIO.read(getClass().getResource("/images/answers/"+tempString+"/10.png"));
+				myPicture = ImageIO.read(ResourceLoader.load("images/answers/"+tempString+"/10.png"));
 			} catch (IOException e1) {
 				e1.printStackTrace();
 			}
