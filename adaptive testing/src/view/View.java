@@ -66,10 +66,10 @@ public class View extends JFrame{
 		System.out.println(tempInt + " " + tempString);
 		BufferedImage myPicture = null;
 		try {
-			myPicture = ImageIO.read(ResourceLoader.load("images/answers/"+tempString+"/"+tempInt+".png"));
+			myPicture = ImageIO.read(ResourceLoader.load("/images/answers/"+tempString+"/"+tempInt+".PNG"));
 		} catch (IOException e) {
 			try {
-				myPicture = ImageIO.read(ResourceLoader.load("images/answers/"+tempString+"/10.png"));
+				myPicture = ImageIO.read(ResourceLoader.load("/images/answers/"+tempString+"/10.PNG"));
 			} catch (IOException e1) {
 				e1.printStackTrace();
 			}
