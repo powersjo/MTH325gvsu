@@ -7,7 +7,6 @@ import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
@@ -26,6 +25,7 @@ public class View extends JFrame{
 	JPanel top, bottom;
 	JButton button1, button2, button3, button4, button5;
 	public View(Model m) {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		ButtonListener buttonListener = new ButtonListener();
 		model = m;
 		top = new JPanel();
@@ -63,18 +63,13 @@ public class View extends JFrame{
 		String tempInt = String.valueOf(model.getQuestion());
 		String tempString = model.getSubject();
 		System.out.println(tempInt + " " + tempString);
-		//if (Integer.parseInt(tempInt) > 10) {
-		//	tempInt = "10";
-		//}
 		BufferedImage myPicture = null;
 		try {
-			myPicture = ImageIO.read(this.getClass().getResource("/images/answers/"+tempString+"/"+tempInt+".png"));
+			myPicture = ImageIO.read(getClass().getResource("/images/answers/"+tempString+"/"+tempInt+".png"));
 		} catch (IOException e) {
-			//e.printStackTrace();
 			try {
-				myPicture = ImageIO.read(this.getClass().getResource("/images/answers/"+tempString+"/10.png"));
+				myPicture = ImageIO.read(getClass().getResource("/images/answers/"+tempString+"/10.png"));
 			} catch (IOException e1) {
-				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
 		}
@@ -120,9 +115,6 @@ public class View extends JFrame{
 				model.checkAnswer("e");
 				setPictureQuestion();
 			}
-			//if (model.getQuestion() == 10) {
-			//	
-			//}
 		}
 	}
 }

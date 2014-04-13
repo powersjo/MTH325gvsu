@@ -1,11 +1,11 @@
 geometry, 1, correct.
 geometry, 2, correct.
-geometry, 3, correct.
-trig, 4, correct.
-trig, 5, correct.
-trig, 6, incorrect.
-trig, 7, incorrect.
-precalc, 8, incorrect.
-precalc, 9, incorrect.
-precalc, 10, incorrect.
-algebra user answer.
+geometry, 3, incorrect.
+geometry, 4, incorrect.
+geometry, 5, incorrect.
+geometry, 6, correct.
+geometry, 7, incorrect.
+geometry, 8, incorrect.
+geometry, 9, incorrect.
+prealgebra, 10, incorrect.
+f u user answer.

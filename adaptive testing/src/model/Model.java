@@ -13,18 +13,15 @@ public class Model {
 	private boolean first;
 	private String answers;
 	private String[] subjects;
-	private int[] used;
 	private int[] number;
 	private int[] current;
 	private String[][] key;
-	private int inARow, tempRandom, userCorrect, questionsAsked;
+	private int inARow, userCorrect;
 	public Model() {
 		first = true;
 		subjects = new String[8];
 		number = new int[10];
-		used = new int[10];
 		key = new String[8][10];
-		tempRandom = 0;
 		userCorrect = 0;
 		inARow = 0;
 		answers = "";
@@ -164,7 +161,6 @@ public class Model {
 				try {
 					file.createNewFile();
 				} catch (IOException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 			}
@@ -173,28 +169,21 @@ public class Model {
 			try {
 				fw = new FileWriter(file.getAbsoluteFile());
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			BufferedWriter bw = new BufferedWriter(fw);
 			try {
 				bw.write(answers);
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			try {
 				bw.close();
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			System.exit(0);
 		}
-	}
-	private void newRandom() {
-		Random randomGen = new Random();
-		tempRandom = randomGen.nextInt(8) + 2;
 	}
 	private int nextQuestion() {
 		if (first) {
