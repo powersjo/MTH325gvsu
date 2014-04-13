@@ -1,10 +1,10 @@
-geometry, 1, correct.
-geometry, 2, incorrect.
-geometry, 3, incorrect.
-geometry, 4, incorrect.
-geometry, 5, incorrect.
+collalgebra, 1, incorrect.
+collalgebra, 2, incorrect.
+collalgebra, 3, incorrect.
+algebra, 4, incorrect.
+algebra, 5, correct.
 prealgebra, 6, incorrect.
-prealgebra, 7, correct.
+prealgebra, 7, incorrect.
 prealgebra, 8, incorrect.
 prealgebra, 9, incorrect.
 prealgebra, 10, incorrect.
