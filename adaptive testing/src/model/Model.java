@@ -1,9 +1,16 @@
 package model;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Random;
+
+import javax.swing.JOptionPane;
 
 public class Model {
 
+	private boolean first;
 	private String answers;
 	private String[] subjects;
 	private int[] used;
@@ -12,6 +19,7 @@ public class Model {
 	private String[][] key;
 	private int inARow, tempRandom, userCorrect, questionsAsked;
 	public Model() {
+		first = true;
 		subjects = new String[8];
 		number = new int[10];
 		used = new int[10];
@@ -134,7 +142,7 @@ public class Model {
 		System.out.println(answers);
 	}
 	public void checkAnswer(String answer) {
-		if(key[current[0]][current[1]].equals(answer)) {
+		if(key[current[0]][current[1]-1].equals(answer)) {
 			userCorrect++;
 			inARow++;
 			String temp = subjects[current[0]] + ", " + current[1] + ", correct.";
@@ -145,32 +153,55 @@ public class Model {
 			String temp = subjects[current[0]] + ", " + current[1] + ", incorrect.";
 			recordResult(temp);
 		}
+		if (current[1] == 10) {
+			String temp = JOptionPane.showInputDialog(null, "What is the highest level of math you have taken?");
+			temp = temp + " user answer.";
+			recordResult(temp);
+			File file = new File("answers.txt");
+			 
+			// if file doesnt exists, then create it
+			if (!file.exists()) {
+				try {
+					file.createNewFile();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+ 
+			FileWriter fw = null;
+			try {
+				fw = new FileWriter(file.getAbsoluteFile());
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			BufferedWriter bw = new BufferedWriter(fw);
+			try {
+				bw.write(answers);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			try {
+				bw.close();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			System.exit(0);
+		}
 	}
 	private void newRandom() {
 		Random randomGen = new Random();
 		tempRandom = randomGen.nextInt(8) + 2;
 	}
 	private int nextQuestion() {
+		if (first) {
+			first = false;
+			return current[1];
+		}
 		current[1]++;
-		//newRandom();
-		//used[0] = tempRandom;
-		//int i = 0;
-		//while (i < 1) {
-		//	if (used[i] == current[1]) {
-		//		newRandom();
-		//		used[0] = tempRandom;
-		//	} else {
-		//		i = 1;
-		//	}
-		//}
-		//for (int k = 9; k > questionsAsked; k--) {
-		//	if (used[k] != 0) {
-		//		used[k] = tempRandom;
-		//		k = -1;
-		//	} 
-		//}
-		//System.out.println(tempRandom);
-		//current[1] = tempRandom;
 		return current[1];
 	}
 	public String getSubject() {

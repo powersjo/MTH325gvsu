@@ -63,11 +63,20 @@ public class View extends JFrame{
 		String tempInt = String.valueOf(model.getQuestion());
 		String tempString = model.getSubject();
 		System.out.println(tempInt + " " + tempString);
+		//if (Integer.parseInt(tempInt) > 10) {
+		//	tempInt = "10";
+		//}
 		BufferedImage myPicture = null;
 		try {
 			myPicture = ImageIO.read(this.getClass().getResource("/images/answers/"+tempString+"/"+tempInt+".png"));
 		} catch (IOException e) {
-			e.printStackTrace();
+			//e.printStackTrace();
+			try {
+				myPicture = ImageIO.read(this.getClass().getResource("/images/answers/"+tempString+"/10.png"));
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 		}
 		JLabel picLabel = new JLabel(new ImageIcon(myPicture));
 		top.add(picLabel);
@@ -111,6 +120,9 @@ public class View extends JFrame{
 				model.checkAnswer("e");
 				setPictureQuestion();
 			}
+			//if (model.getQuestion() == 10) {
+			//	
+			//}
 		}
 	}
 }
