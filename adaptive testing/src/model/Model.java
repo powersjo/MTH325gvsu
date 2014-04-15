@@ -218,6 +218,10 @@ public class Model {
 				inARowMinus = 0;
 			}
 		}
+		if(current[0]>7)
+			current[0]=7;
+		if(current[0]<0)
+			current[0]=0;
 		return subjects[current[0]];
 	}
 	public int getQuestion() {

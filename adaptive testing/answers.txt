@@ -1,11 +1,11 @@
-collalgebra, 1, incorrect.
-collalgebra, 2, incorrect.
-collalgebra, 3, correct.
-collalgebra, 4, correct.
-collalgebra, 5, incorrect.
-geometry, 6, incorrect.
-geometry, 7, incorrect.
-geometry, 8, incorrect.
-prealgebra, 9, incorrect.
-prealgebra, 10, correct.
-lyf user answer.
+trig, 1, correct.
+trig, 2, correct.
+trig, 3, correct.
+calc1, 4, correct.
+calc1, 5, correct.
+calc1, 6, correct.
+calc2, 7, correct.
+calc2, 8, correct.
+calc2, 9, correct.
+calc2, 10, incorrect.
+Calc 2 user answer.
