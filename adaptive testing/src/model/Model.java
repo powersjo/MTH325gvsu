@@ -16,7 +16,7 @@ public class Model {
 	private int[] number;
 	private int[] current;
 	private String[][] key;
-	private int inARow, userCorrect;
+	private int inARow, userCorrect, userWrong, inARowMinus;
 	public Model() {
 		first = true;
 		subjects = new String[8];
@@ -24,6 +24,8 @@ public class Model {
 		key = new String[8][10];
 		userCorrect = 0;
 		inARow = 0;
+		inARowMinus = 0;
+		userWrong = 0;
 		answers = "";
 		/*
 		 * Create the Key
@@ -142,11 +144,13 @@ public class Model {
 		if(key[current[0]][current[1]-1].equals(answer)) {
 			userCorrect++;
 			inARow++;
+			inARowMinus = 0;
 			String temp = subjects[current[0]] + ", " + current[1] + ", correct.";
 			recordResult(temp);
 		} else {
 			inARow = 0;
-			userCorrect--;
+			inARowMinus ++;
+			userWrong++;
 			String temp = subjects[current[0]] + ", " + current[1] + ", incorrect.";
 			recordResult(temp);
 		}
@@ -155,7 +159,6 @@ public class Model {
 			temp = temp + " user answer.";
 			recordResult(temp);
 			File file = new File("answers.txt");
-			 
 			// if file doesnt exists, then create it
 			if (!file.exists()) {
 				try {
@@ -194,17 +197,25 @@ public class Model {
 		return current[1];
 	}
 	public String getSubject() {
-		if (userCorrect == 3) {
+		if (userCorrect >= 3) {
 			current[0]++;
+			userCorrect = 0;
+			userWrong = 0;
+			if (inARow >= 2) {
+				current[0]++;
+				inARow = 0;
+			}
 		}
-		if (inARow == 3) {
-			current[0]++;
-			inARow = 0;
-		}
-		if (userCorrect == -3) {
-			current[0] = current[0] - 2;
+		if (userWrong >= 3) {
+			current[0]--;
+			userWrong = 0;
+			userCorrect = 0;
 			if (current[0] < 0) {
 				current[0] = 0;
+			}
+			if (inARowMinus >= 2) {
+				current[0]--;
+				inARowMinus = 0;
 			}
 		}
 		return subjects[current[0]];
